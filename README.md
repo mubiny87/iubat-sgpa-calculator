@@ -1,21 +1,51 @@
-# IUBAT SGPA Calculator
+# 🎓 IUBAT SGPA Calculator
 
-A Python console application that calculates semester GPA (SGPA) based on the IUBAT grading system.
+A Python console application that calculates **Semester Grade Point Average (SGPA)** based on the IUBAT grading system.
 
-## Features
+## ✨ Features
 
-- Calculates course marks
-- Determines letter grade
-- Determines grade point
-- Calculates quality points
-- Calculates semester SGPA
+- Calculate overall course marks
+- Determine letter grades automatically
+- Calculate grade points
+- Calculate quality points (Credit × Grade Point)
+- Calculate semester SGPA
 
-## Technologies
+## 🛠️ Technologies Used
 
-- Python
+- Python 3
 
-## Future Plans
+## 🚀 How to Run
 
-- Store course data
-- Calculate CGPA
-- Convert to Django web application
+1. Clone the repository
+
+```bash
+git clone https://github.com/mubiny87/iubat-sgpa-calculator.git
+```
+
+2. Open the project folder
+
+```bash
+cd iubat-sgpa-calculator
+```
+
+3. Run the program
+
+```bash
+python iubat_sgpa_calculator.py
+```
+
+## 📌 Future Plans
+
+- [ ] Calculate CGPA
+- [ ] Store semester history
+- [ ] Export results to a file
+- [ ] Create a desktop GUI
+- [ ] Convert into a Django web application
+- [ ] Deploy online for IUBAT students
+
+## 👨‍💻 Author
+
+**Sadik Hasan Mubin**
+
+Bachelor of Computer Science and Engineering (BCSE)  
+International University of Business Agriculture and Technology (IUBAT)
