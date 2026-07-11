@@ -1,3 +1,8 @@
+CoursesNames=[]
+Credits=[]
+LetterGrades=[]
+GradePoints=[]
+
 TotalCourses = int(input("How many courses this semester? "))
 TotalCredits = 0
 TotalQualityPoints = 0
@@ -59,9 +64,14 @@ for i in range(TotalCourses):
 
     TotalCredits += Credit
     TotalQualityPoints += QualityPoints
+    
+    CoursesNames.append(C_Name)
+    Credits.append(Credit)
+    LetterGrades.append(LetterGrade)
+    GradePoints.append(GradePoint)
 
 SGPA = TotalQualityPoints / TotalCredits
 
-print("\n========== SEMESTER RESULT ==========")
-print(f"Total Credits        : {TotalCredits}")
-print(f"Semester GPA (SGPA)  : {SGPA:.2f}")
+print("\n========== SEMESTER SUMMARY ==========")
+for i in range(len(CoursesNames)):
+    print(f"{CoursesNames[i]:15} {Credits[i]:6} {LetterGrades[i]:8} {GradePoints[i]:5.2f}")
