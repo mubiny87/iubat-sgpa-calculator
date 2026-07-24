@@ -3,12 +3,12 @@ Credits = []
 LetterGrades = []
 GradePoints = []
 
-TotalCourses = int(input("How many courses this semester? "))
 TotalCredits = 0
 TotalQualityPoints = 0
 
-for i in range(TotalCourses):
-    print(f"\n========== COURSE {i+1} ==========")
+
+def input_info():
+    print(f"\n========== COURSE ==========")
 
     C_Name = input("Course Name: ")
     Credit = int(input("Credit: "))
@@ -19,41 +19,42 @@ for i in range(TotalCourses):
     ASS = float(input("Assignment out of 10: "))
     FINAL = float(input("Final out of 100: "))
 
+    return C_Name, Credit, MID, CT, ATT, ASS, FINAL
+
+
+def calculate_marks(MID, CT, ATT, ASS, FINAL):
     CG = (MID / 4) + (CT / 10) + ATT + ASS + (FINAL / 2)
+    return CG
 
+
+def calculate_grade(CG):
     if CG >= 80:
-        LetterGrade = "A+"
-        GradePoint = 4.00
+        return "A+", 4.00
     elif CG >= 75:
-        LetterGrade = "A"
-        GradePoint = 3.75
+        return "A", 3.75
     elif CG >= 70:
-        LetterGrade = "A-"
-        GradePoint = 3.50
+        return "A-", 3.50
     elif CG >= 65:
-        LetterGrade = "B+"
-        GradePoint = 3.25
+        return "B+", 3.25
     elif CG >= 60:
-        LetterGrade = "B"
-        GradePoint = 3.00
+        return "B", 3.00
     elif CG >= 55:
-        LetterGrade = "B-"
-        GradePoint = 2.75
+        return "B-", 2.75
     elif CG >= 50:
-        LetterGrade = "C+"
-        GradePoint = 2.50
+        return "C+", 2.50
     elif CG >= 45:
-        LetterGrade = "C"
-        GradePoint = 2.25
+        return "C", 2.25
     elif CG >= 40:
-        LetterGrade = "D"
-        GradePoint = 2.00
+        return "D", 2.00
     else:
-        LetterGrade = "F"
-        GradePoint = 0.00
+        return "F", 0.00
 
-    QualityPoints = Credit * GradePoint
 
+def calculate_quality_points(Credit, GradePoint):
+    return Credit * GradePoint
+
+
+def print_result(C_Name, Credit, CG, LetterGrade, GradePoint, QualityPoints):
     print("\n========== COURSE RESULT ==========")
     print(f"Course Name         : {C_Name}")
     print(f"Course Credit       : {Credit}")
@@ -61,6 +62,49 @@ for i in range(TotalCourses):
     print(f"Letter Grade        : {LetterGrade}")
     print(f"Grade Point         : {GradePoint:.2f}")
     print(f"Quality Points      : {QualityPoints:.2f}")
+
+
+def print_summary(CoursesNames, Credits, LetterGrades, GradePoints,
+                  TotalCredits, TotalQualityPoints):
+    SGPA = TotalQualityPoints / TotalCredits
+
+    print("\n========== SEMESTER SUMMARY ==========")
+    print(f"{'Course Name':15} {'Credit':6} {'Grade':8} {'GP':5}")
+    print("-" * 40)
+
+    for i in range(len(CoursesNames)):
+        print(f"{CoursesNames[i]:15} {Credits[i]:6} {LetterGrades[i]:8} {GradePoints[i]:5.2f}")
+
+    print("-" * 40)
+    print(f"Total Credits       : {TotalCredits}")
+    print(f"Total Quality Points: {TotalQualityPoints:.2f}")
+    print(f"Semester GPA (SGPA) : {SGPA:.2f}")
+
+
+# ================= MAIN PROGRAM =================
+
+TotalCourses = int(input("How many courses this semester? "))
+
+for i in range(TotalCourses):
+
+    print(f"\n========== COURSE {i+1} ==========")
+
+    C_Name, Credit, MID, CT, ATT, ASS, FINAL = input_info()
+
+    CG = calculate_marks(MID, CT, ATT, ASS, FINAL)
+
+    LetterGrade, GradePoint = calculate_grade(CG)
+
+    QualityPoints = calculate_quality_points(Credit, GradePoint)
+
+    print_result(
+        C_Name,
+        Credit,
+        CG,
+        LetterGrade,
+        GradePoint,
+        QualityPoints
+    )
 
     TotalCredits += Credit
     TotalQualityPoints += QualityPoints
@@ -70,16 +114,11 @@ for i in range(TotalCourses):
     LetterGrades.append(LetterGrade)
     GradePoints.append(GradePoint)
 
-SGPA = TotalQualityPoints / TotalCredits
-
-print("\n========== SEMESTER SUMMARY ==========")
-print(f"{'Course Name':15} {'Credit':6} {'Grade':8} {'GP':5}")
-print("-" * 40)
-
-for i in range(len(CoursesNames)):
-    print(f"{CoursesNames[i]:15} {Credits[i]:6} {LetterGrades[i]:8} {GradePoints[i]:5.2f}")
-
-print("-" * 40)
-print(f"Total Credits       : {TotalCredits}")
-print(f"Total Quality Points: {TotalQualityPoints:.2f}")
-print(f"Semester GPA (SGPA) : {SGPA:.2f}")
+print_summary(
+    CoursesNames,
+    Credits,
+    LetterGrades,
+    GradePoints,
+    TotalCredits,
+    TotalQualityPoints
+)
