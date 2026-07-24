@@ -1,7 +1,7 @@
-CoursesNames=[]
-Credits=[]
-LetterGrades=[]
-GradePoints=[]
+CoursesNames = []
+Credits = []
+LetterGrades = []
+GradePoints = []
 
 TotalCourses = int(input("How many courses this semester? "))
 TotalCredits = 0
@@ -11,7 +11,7 @@ for i in range(TotalCourses):
     print(f"\n========== COURSE {i+1} ==========")
 
     C_Name = input("Course Name: ")
-    Credit = float(input("Credit: "))
+    Credit = int(input("Credit: "))
 
     MID = float(input("Mid out of 100: "))
     CT = float(input("CT out of 100: "))
@@ -64,7 +64,7 @@ for i in range(TotalCourses):
 
     TotalCredits += Credit
     TotalQualityPoints += QualityPoints
-    
+
     CoursesNames.append(C_Name)
     Credits.append(Credit)
     LetterGrades.append(LetterGrade)
@@ -73,5 +73,13 @@ for i in range(TotalCourses):
 SGPA = TotalQualityPoints / TotalCredits
 
 print("\n========== SEMESTER SUMMARY ==========")
+print(f"{'Course Name':15} {'Credit':6} {'Grade':8} {'GP':5}")
+print("-" * 40)
+
 for i in range(len(CoursesNames)):
     print(f"{CoursesNames[i]:15} {Credits[i]:6} {LetterGrades[i]:8} {GradePoints[i]:5.2f}")
+
+print("-" * 40)
+print(f"Total Credits       : {TotalCredits}")
+print(f"Total Quality Points: {TotalQualityPoints:.2f}")
+print(f"Semester GPA (SGPA) : {SGPA:.2f}")
