@@ -8,7 +8,7 @@ TotalQualityPoints = 0
 
 
 def input_info():
-    print(f"\n========== COURSE ==========")
+    print("\n========== COURSE ==========")
 
     C_Name = input("Course Name: ")
     Credit = int(input("Credit: "))
@@ -73,7 +73,10 @@ def print_summary(CoursesNames, Credits, LetterGrades, GradePoints,
     print("-" * 40)
 
     for i in range(len(CoursesNames)):
-        print(f"{CoursesNames[i]:15} {Credits[i]:6} {LetterGrades[i]:8} {GradePoints[i]:5.2f}")
+        print(
+            f"{CoursesNames[i]:15} {Credits[i]:6} "
+            f"{LetterGrades[i]:8} {GradePoints[i]:5.2f}"
+        )
 
     print("-" * 40)
     print(f"Total Credits       : {TotalCredits}")
@@ -83,8 +86,14 @@ def print_summary(CoursesNames, Credits, LetterGrades, GradePoints,
 
 # ================= MAIN PROGRAM =================
 
+print("========== IUBAT SGPA & CGPA CALCULATOR ==========")
+
 TotalCourses = int(input("How many courses this semester? "))
 
+if TotalCourses <= 0:
+    print("Number of courses must be greater than 0.")
+    exit()
+    
 for i in range(TotalCourses):
 
     print(f"\n========== COURSE {i+1} ==========")
@@ -122,3 +131,28 @@ print_summary(
     TotalCredits,
     TotalQualityPoints
 )
+
+# ================= CGPA CALCULATOR =================
+
+choice = input("\nDo you want to calculate CGPA? (Y/N): ").strip().upper()
+
+if choice == "Y":
+
+    PreviousCGPA = float(input("Enter Previous CGPA: "))
+    PreviousCredits = int(input("Enter Previously Completed Credits: "))
+
+    SGPA = TotalQualityPoints / TotalCredits
+
+    CGPA = (
+        (PreviousCGPA * PreviousCredits)
+        + TotalQualityPoints
+    ) / (PreviousCredits + TotalCredits)
+
+    print("\n========== CGPA RESULT ==========")
+    print(f"Previous CGPA         : {PreviousCGPA:.2f}")
+    print(f"Previous Credits      : {PreviousCredits}")
+    print(f"Current Semester SGPA : {SGPA:.2f}")
+    print(f"Current Credits       : {TotalCredits}")
+    print(f"Updated CGPA          : {CGPA:.2f}")
+
+print("\nThank you for using IUBAT SGPA & CGPA Calculator!")
