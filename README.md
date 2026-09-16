@@ -1,4 +1,4 @@
-# 🎓 IUBAT SGPA Calculator
+# 🎓 IUBAT SGPA & CGPA Calculator
 
 A Python console application that calculates **Semester Grade Point Average (SGPA)** based on the IUBAT grading system.
 
@@ -9,6 +9,7 @@ A Python console application that calculates **Semester Grade Point Average (SGP
 - Calculate grade points
 - Calculate quality points (Credit × Grade Point)
 - Calculate semester SGPA
+- Calculate Updated CGPA using previous CGPA and completed credits
 
 ## 🛠️ Technologies Used
 
