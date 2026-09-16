@@ -13,7 +13,7 @@ A Python console application that calculates **Semester Grade Point Average (SGP
 
 ## 🌐 Live Demo
 
-https://your-streamlit-url.streamlit.app](https://mubiny87-iubat-sgpa-calculator-streamlit-app-oxkycn.streamlit.app/
+https://mubiny87-iubat-sgpa-calculator-streamlit-app-oxkycn.streamlit.app/
 
 ## 🛠️ Technologies Used
 
