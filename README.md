@@ -11,6 +11,10 @@ A Python console application that calculates **Semester Grade Point Average (SGP
 - Calculate semester SGPA
 - Calculate Updated CGPA using previous CGPA and completed credits
 
+## 🌐 Live Demo
+
+https://your-streamlit-url.streamlit.app
+
 ## 🛠️ Technologies Used
 
 - Python 3
