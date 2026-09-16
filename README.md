@@ -37,7 +37,6 @@ python iubat_sgpa_calculator.py
 
 ## 📌 Future Plans
 
-- [ ] Calculate CGPA
 - [ ] Store semester history
 - [ ] Export results to a file
 - [ ] Create a desktop GUI
